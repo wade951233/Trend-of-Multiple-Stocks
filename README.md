@@ -1,7 +1,8 @@
 # Trend-of-Multiple-Stocks
-Clone 程式
+Clone 程式並進入資料夾
 ```
 git clone https://github.com/wade951233/Trend-of-Multiple-Stocks.git
+cd Trend-of-Multiple-Stocks
 ```
 
 1. 創建環境
