@@ -20,3 +20,4 @@ pip install -r requirements.txt
 ```
 pyinstaller --onefile --noconsole stocksApp.py
 ```
+![Uploading image.png…]()
