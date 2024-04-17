@@ -1,4 +1,5 @@
 # Trend-of-Multiple-Stocks
+Clone 程式
 ```
 git clone https://github.com/wade951233/Trend-of-Multiple-Stocks.git
 ```
