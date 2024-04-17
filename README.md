@@ -20,4 +20,4 @@ pip install -r requirements.txt
 ```
 pyinstaller --onefile --noconsole stocksApp.py
 ```
-![Uploading image.png…]()
+![image](https://github.com/wade951233/Trend-of-Multiple-Stocks/assets/54468254/0a3dc047-d466-4dd9-ada0-e9790ed068d9)
