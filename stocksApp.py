@@ -6,6 +6,7 @@ import yfinance as yf
 import plotly.graph_objs as go
 
 app = Dash(__name__)
+
 # 定義技術指標計算函數
 def calculate_moving_average(data, window):
     return data.rolling(window=window).mean()
@@ -53,27 +54,41 @@ def update_graph(search_value, selected_indicators):
             fig.add_trace(go.Scatter(x=hist_data.index, y=close, mode='lines', name=ticker))
 
             # 加入選擇的技術指標
-            if 'MMA30' in selected_indicators:
-                mma30 = calculate_moving_average(close, 30)
-                fig.add_trace(go.Scatter(x=hist_data.index, y=mma30, mode='lines', name=f'{ticker} 30d MA'))
+            for indicator in selected_indicators:
+                if indicator == 'MMA30':
+                    mma30 = calculate_moving_average(close, 30)
+                    fig.add_trace(go.Scatter(x=hist_data.index, y=mma30, mode='lines', name=f'{ticker} 30d MA'))
+                elif indicator == 'QMA90':
+                    qma90 = calculate_moving_average(close, 90)
+                    fig.add_trace(go.Scatter(x=hist_data.index, y=qma90, mode='lines', name=f'{ticker} 90d MA'))
+                elif indicator == 'YMA250':
+                    yma250 = calculate_moving_average(close, 250)
+                    fig.add_trace(go.Scatter(x=hist_data.index, y=yma250, mode='lines', name=f'{ticker} 250d MA'))
+                elif indicator == 'FIVEYMA1250':
+                    fiveyma1250 = calculate_moving_average(close, 1250)
+                    fig.add_trace(go.Scatter(x=hist_data.index, y=fiveyma1250, mode='lines', name=f'{ticker} 1250d MA'))
+                elif indicator == 'TENYMA2500':
+                    tenyma2500 = calculate_moving_average(close, 2500)
+                    fig.add_trace(go.Scatter(x=hist_data.index, y=tenyma2500, mode='lines', name=f'{ticker} 2500d MA'))
 
-            if 'QMA90' in selected_indicators:
-                qma90 = calculate_moving_average(close, 90)
-                fig.add_trace(go.Scatter(x=hist_data.index, y=qma90, mode='lines', name=f'{ticker} 90d MA'))
-
-            if 'YMA250' in selected_indicators:
-                yma250 = calculate_moving_average(close, 250)
-                fig.add_trace(go.Scatter(x=hist_data.index, y=yma250, mode='lines', name=f'{ticker} 250d MA'))
-
-            if 'FIVEYMA1250' in selected_indicators:
-                fiveyma1250 = calculate_moving_average(close, 1250)
-                fig.add_trace(go.Scatter(x=hist_data.index, y=fiveyma1250, mode='lines', name=f'{ticker} 1250d MA'))
-
-            if 'TENYMA2500' in selected_indicators:
-                tenyma2500 = calculate_moving_average(close, 2500)
-                fig.add_trace(go.Scatter(x=hist_data.index, y=tenyma2500, mode='lines', name=f'{ticker} 2500d MA'))
-
-    fig.update_layout(title='Stock Data Comparison', xaxis_title='Date', yaxis_title='Close Price')
+    # 日期範圍選擇器
+    fig.update_layout(
+        title='Stock Data Comparison',
+        xaxis_title='Date',
+        yaxis_title='Close Price',
+        xaxis=dict(
+            rangeselector=dict(
+                buttons=list([
+                    dict(count=1, label="1m", step="month", stepmode="backward"),  # 1個月
+                    dict(count=6, label="6m", step="month", stepmode="backward"),  # 6個月
+                    dict(count=1, label="YTD", step="year", stepmode="todate"),    # 年初至今
+                    dict(count=1, label="1y", step="year", stepmode="backward"),   # 1年
+                    dict(step="all")  # 全部數據
+                ])
+            ),
+            type="date"
+        )
+    )
     return fig
 
 def open_browser():
