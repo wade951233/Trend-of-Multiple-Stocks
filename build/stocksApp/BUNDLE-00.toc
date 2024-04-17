@@ -1,0 +1,3 @@
+([('stocksApp',
+   '/Users/yu/Desktop/Project/python/stock/Trend-of-Multiple-Stocks/dist/stocksApp',
+   'EXECUTABLE')],)
