@@ -1,4 +1,4 @@
-# Trend-of-Multiple-Stocks
+# 比較各股走勢(Trend-of-Multiple-Stocks)
 Clone 程式並進入資料夾
 ```
 git clone https://github.com/wade951233/Trend-of-Multiple-Stocks.git
