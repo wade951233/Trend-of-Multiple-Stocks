@@ -1,4 +1,7 @@
 # Trend-of-Multiple-Stocks
+```
+git clone https://github.com/wade951233/Trend-of-Multiple-Stocks.git
+```
 
 1. 創建環境
 ```
