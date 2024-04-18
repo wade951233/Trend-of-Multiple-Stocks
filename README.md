@@ -21,6 +21,9 @@ pip install -r requirements.txt
 ```
 pyinstaller --onefile --noconsole stocksApp.py
 ```
+
+## 執行畫面
+輸入：006208.TW,00631L.TW
 ![image](https://github.com/wade951233/Trend-of-Multiple-Stocks/assets/54468254/0a3dc047-d466-4dd9-ada0-e9790ed068d9)
 
 ![image](https://github.com/wade951233/Trend-of-Multiple-Stocks/assets/54468254/6f05f915-beaf-4827-9977-04236f130f44)
