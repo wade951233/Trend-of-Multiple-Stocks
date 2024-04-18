@@ -11,6 +11,11 @@ python3 -m venv Multiple-Stocks-env
 ```
 2. 激活環境
 ```
+[windows]
+Set-ExecutionPolicy Unrestricted -Scope Process
+.\Multiple-Stocks-env\Scripts\activate
+
+[macos]
 source Multiple-Stocks-env/bin/activate
 ```
 3. 安裝套件
