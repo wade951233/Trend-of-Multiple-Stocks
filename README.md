@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ```
 4. 打包成執行檔
 ```
-pyinstaller --onefile --noconsole stocksApp.py
+pyinstaller --onefile stocksApp.py
 ```
 
 ## 執行畫面
